@@ -3,7 +3,7 @@ import os
 import streamlit as st
 from langchain_openai import OpenAI
 from langchain_core.prompts import PromptTemplate
-from langchain.chains import LLMChain
+# from langchain.chains import LLMChain
 
 
 API_KEY = os.environ.get("OPENAI_API_KEY")
