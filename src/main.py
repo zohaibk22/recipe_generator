@@ -18,19 +18,20 @@ def main():
     )
 
     # Test the prompt template
-    template = prompt_template.format(ingredients="chicken, rice, broccoli")
+    # template = prompt_template.format(ingredients="chicken, rice, broccoli")
 
-    print(template)
+    # print(template)
 
     # Create LLM Chain
-    meal_chain = LLMChain(llm=llm, prompt=prompt_template, verbose=True)
+    # meal_chain = LLMChain(llm=llm, prompt=prompt_template, verbose=True)
+
 
     st.title("Recipe Generator")
     user_prompt = st.text_input("Enter ingredients (comma separated):")
 
     if st.button("Generate Recipe") and user_prompt:
         with st.spinner("Generating recipe..."):
-            output = meal_chain.run(ingredients=user_prompt)
+            output = llm.invoke(prompt_template.format(ingredients=user_prompt))
             st.write(output)
 
 if __name__ == "__main__":
